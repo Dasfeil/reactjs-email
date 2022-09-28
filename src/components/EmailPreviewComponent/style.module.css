@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(158, 141, 141);
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonGroup button {
+    width: fit-content;
+    margin-right: 10px;
+}
+
+.headerDiv {
+    margin: auto;
+    padding: 10px;
+}
+
+.right {
+    width: fit-content;
+    font-size: medium;
+}
+
+.left {
+    width: 60%;
+}
+
+.subject {
+    font-size: 18px;
+    font-weight: 501;
+    margin-bottom: 6px;
+}
+
+.fromTo {
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+.right p {
+    font-size: 14px;
+}
+
+.body {
+    padding: 5px 20px;
+    white-space: pre-line;
+}

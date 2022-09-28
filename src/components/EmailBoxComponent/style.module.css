@@ -1,0 +1,20 @@
+.activeFolder {
+    background-color: rgb(78, 78, 245);
+    color: white;
+    padding-top: 5px;
+}
+
+.folder {
+    padding-top: 5px;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.text {
+    display: inline-flex;
+    min-width: 60%;
+}
