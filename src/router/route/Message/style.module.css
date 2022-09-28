@@ -3,17 +3,22 @@
     background-color: rgb(201, 201, 201);
     align-items: center;
     justify-content: center;
-    width: 15%;
+    width: 140px;
     flex-direction: column;
 }
 
 .detailComponent {
-    width: 85%;
+    width: fit-content;
+    overflow-y: auto;
+    height: 225px;
 }
 
 .container {
     width: 99%;
     margin: auto;
+}
+
+.inbox {
     display: flex;
     border: 1px solid black;
 }

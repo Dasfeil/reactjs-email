@@ -43,14 +43,14 @@ header {
 .router-link {
   text-decoration: none;
   color: rgb(0, 112, 209);
-  padding: 9px 10px 0px 10px;
+  padding: 9px 20px 0px 20px;
   margin-bottom: -1px;
 }
 
 .router-link-active {
   text-decoration: none;
   color: black;
-  padding: 9px 10px 0px 10px;
+  padding: 9px 20px 0px 20px;
   border: 1px solid black;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;

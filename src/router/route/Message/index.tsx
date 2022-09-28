@@ -4,6 +4,7 @@ import style from './style.module.css'
 import EmailBoxComponent from '../../../components/EmailBoxComponent'
 import EmailDetailComponent from '../../../components/EmailDetailComponent'
 import IMessages from '../../../interface/IMessages'
+import EmailPreviewComponent from '../../../components/EmailPreviewComponent'
 
 export default function Messages() {
     const props: Array<any> = useOutletContext()
@@ -11,6 +12,7 @@ export default function Messages() {
     const folders: Array<string> = props[1]
     const [folder, setFolder] = useState(0)
     const [message, setMessage] = useState(new Array<IMessages>())
+    const [selected, setSelect] = useState<IMessages>()
     useEffect(() => {
         setMessage(messages.filter((m: IMessages) => { 
             return m.folder === folders[folder]
@@ -18,12 +20,17 @@ export default function Messages() {
     }, [folder, messages, folders])
     return (
         <div className={style.container}>
-            <div className={style.boxComponent}>
-                <EmailBoxComponent folders={folders} setFolder={setFolder}/>
+            <div className={style.inbox}>
+                <div className={style.boxComponent}>
+                    <EmailBoxComponent active={folder} folders={folders} setFolder={setFolder}/>
+                </div>
+                <div className={style.detailComponent}>
+                    <EmailDetailComponent messages={message} selected={selected} setSelect={setSelect}/>
+                </div>
             </div>
-            <div className={style.detailComponent}>
-                <EmailDetailComponent messages={message}/>
-            </div>
+            {selected && <div>
+                <EmailPreviewComponent message={selected}/>
+            </div>}
         </div>
     )
 }
