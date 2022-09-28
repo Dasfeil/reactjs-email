@@ -24,6 +24,7 @@ export default function Messages() {
     }
     useEffect(() => {
         let temp = messages
+        setSelect(undefined)
         temp.sort((a: IMessages, b: IMessages) => { return compareDate(Date.parse(a.date), Date.parse(b.date))*(order? 1 : -1)})
         setMessage(temp.filter((m: IMessages) => { 
             return m.folder === folders[folder]
