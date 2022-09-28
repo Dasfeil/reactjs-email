@@ -13,11 +13,22 @@ export default function Messages() {
     const [folder, setFolder] = useState(0)
     const [message, setMessage] = useState(new Array<IMessages>())
     const [selected, setSelect] = useState<IMessages>()
+    const [order, setOrder] = useState(false)
+    const toggleOrder = () => {
+        setOrder(!order)
+    }
+    const compareDate = (a: number, b: number) => {
+        if (a > b) return 1
+        else if (a < b) return -1
+        else return 0
+    }
     useEffect(() => {
-        setMessage(messages.filter((m: IMessages) => { 
+        let temp = messages
+        temp.sort((a: IMessages, b: IMessages) => { return compareDate(Date.parse(a.date), Date.parse(b.date))*(order? 1 : -1)})
+        setMessage(temp.filter((m: IMessages) => { 
             return m.folder === folders[folder]
         }))
-    }, [folder, messages, folders])
+    }, [folder, messages, folders, order])
     return (
         <div className={style.container}>
             <div className={style.inbox}>
@@ -25,7 +36,7 @@ export default function Messages() {
                     <EmailBoxComponent active={folder} folders={folders} setFolder={setFolder}/>
                 </div>
                 <div className={style.detailComponent}>
-                    <EmailDetailComponent messages={message} selected={selected} setSelect={setSelect}/>
+                    <EmailDetailComponent messages={message} selected={selected} setSelect={setSelect} order={order} toggleOrder={toggleOrder}/>
                 </div>
             </div>
             {selected && <div>
